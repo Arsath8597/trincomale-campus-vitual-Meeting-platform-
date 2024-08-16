@@ -6,9 +6,9 @@ import events from "../assets/event.png"
 import { motion } from 'framer-motion'
 const home = () => {
   return (
-    <div id='#home' className='flex bg-custom-gradient flex-col  w-full h-[92vh]'>
+    <div id='home' className='flex z-10 bg-custom-gradient flex-col  w-full h-[100vh]'>
 
-      <div className=' z-50 mt-28 text-white px-10'>
+      <div className=' z-40 mt-48 text-white px-10'>
         <motion.h1
         initial={{opacity:0, y:100}}
         whileInView={{opacity:1,y:0}}
@@ -23,7 +23,7 @@ const home = () => {
             opportunities, and practical skills relevant to its 
             respective field, contributingmotion.  to the overall academic 
             diversity .</motion.p >
-            <div className='mt-32  flex justify-between'>
+            <div className='mt-40 flex justify-between'>
                 <Card children='Degree Program'
                 images={degree}
                 targetNumber="30"/>
