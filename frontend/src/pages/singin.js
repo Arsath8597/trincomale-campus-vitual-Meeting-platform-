@@ -1,15 +1,52 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../components/button';
 import Navbar from './navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../actions/authAction';
+import {toast} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+
 const Singin = () => {
+
     const [isUserLogin,setIsUserLogin]=useState(true);
+    const [email,setEmail]=useState("")
+    const [Password,setPassword]=useState("")
+
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
+    const {loading,error,isAthundicate}=useSelector(state=>state.authState)
 
     const toggleLoginType=()=>{
         setIsUserLogin(!isUserLogin)
         
     }
     console.log(isUserLogin)
+
+    const handleSubmit=(e)=>{
+      e.preventDefault()
+      if(email && Password){
+      dispatch(login(email,Password))}
+      else{
+        toast("Please fill in all fields", {
+          position: 'top-center',
+          type: "error"
+        });
+      }
+    }
+
+    useEffect(()=>{
+if(isAthundicate){
+navigate("/userhome")
+
+}
+
+if(error){
+  toast(error,{
+  position:'top-center',
+  type:"error"
+})}
+    },[isAthundicate,error,navigate])
   return (
     <div className='flex flex-col  bg-custom-gradient  h-[100vh]'>
       <Navbar/>
@@ -22,17 +59,17 @@ const Singin = () => {
         onClick={()=>setIsUserLogin(false) } className='px-4 text-xl shadow-lg  bg-black bg-opacity-25 py-3  '>staff Login</button>
       </div>
       
-      <form className='w-[400px]'>
+      <form onSubmit={handleSubmit} className='w-[400px]'>
         <h1 className='text-center py-3 text-2xl font-semibold'>
           {isUserLogin ? "Student Sing In":"Staff Sing In"}
         </h1>
         <div>
           <label className='text-lg '>Email</label>
-          <input className='w-full px-1 py-2 my-2 rounded-lg shadow-lg text-black' type='text'/>
+          <input onChange={(e)=>setEmail(e.target.value)} className='w-full px-1 py-2 my-2 rounded-lg shadow-lg text-black' type='text'/>
         </div>
         <div>
           <label className='text-lg '>Password</label>
-          <input className='w-full px-1 py-2 my-2 rounded-lg shadow-lg text-black' type='text'/>
+          <input onChange={(e)=>setPassword(e.target.value)} className='w-full px-1 py-2 my-2 rounded-lg shadow-lg text-black' type='text'/>
         </div>
         <div className='flex justify-between'>
         <Button type='submit' className={"mt-5 "}>
