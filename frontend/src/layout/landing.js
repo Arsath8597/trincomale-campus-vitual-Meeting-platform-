@@ -8,7 +8,7 @@ import About from "../pages/about"
 import Footer from '../pages/footer'
 const Landing = () => {
   return (
-    <div>
+    <div className='overflow-x-hidden'>
      <Navbar/>
      <Home/>
      <Faculties/>

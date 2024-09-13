@@ -1,7 +1,7 @@
 import AuthReducer from "./reducers/AuthReducer"
 import { configureStore ,combineReducers} from "@reduxjs/toolkit";
 import ScheduleReducer from "./reducers/scheduleReducer";
-import {thunk} from "redux-thunk";
+
 
 
 const reducer=combineReducers({
@@ -11,7 +11,10 @@ const reducer=combineReducers({
 
 const store=configureStore({
     reducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+          serializableCheck: false,
+        }),
 })
 
 export default store

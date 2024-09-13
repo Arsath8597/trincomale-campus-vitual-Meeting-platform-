@@ -8,10 +8,10 @@ const About = () => {
   return (
     <div id='about' className='bg-custom-gradient1 text-white' >
     <h1 className='text-center text-4xl font-semibold  py-10'>About Us</h1>
-   <div className='px-20'>
+   <div className='lg:px-20 px-5'>
    <div>
    <h1 className='text-2xl font-semibold my-5'>Get In Touch Us</h1>
-    <p className=' w-[700px] text-lg'>If you have any inquiries, do not hesitate to get in touch with us. Connect with us via the relevant contact numbers or send us a message and we would get back to you at our earliest.</p>
+    <p className=' lg:w-[700px] text-lg'>If you have any inquiries, do not hesitate to get in touch with us. Connect with us via the relevant contact numbers or send us a message and we would get back to you at our earliest.</p>
  
   </div>
   <div className='flex flex-col w-80 my-10'>

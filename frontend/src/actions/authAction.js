@@ -13,7 +13,6 @@ try {
 }
 }
 
-
 //user data get action
 export const LoadUser=async(dispatch)=>{
     try {

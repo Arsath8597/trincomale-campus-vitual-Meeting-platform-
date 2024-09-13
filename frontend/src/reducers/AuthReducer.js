@@ -49,8 +49,29 @@ const authSlice=createSlice({
                 error:action.payload
             }
         },
+        logOutRequest(state,action){
+            return{
+                ...state,
+                loading:true,
+
+            }
+        },
+        logOutSuccess(state,action){
+            return{
+                ...state,
+                loading:false,
+                isAthundicate:false
+            }
+        },
+
+        logOutFail(state,action){
+            return{
+                ...state,
+                error:action.payload
+            }
+        }
     }
 })
 const {actions,reducer}=authSlice
-export const {loginRequest,loginSuccess,loginFail,loadUserFail,loadUserRequest,loadUserSuccess}=actions;
+export const {logOutRequest,logOutSuccess,logOutFail,loginRequest,loginSuccess,loginFail,loadUserFail,loadUserRequest,loadUserSuccess}=actions;
 export default reducer;

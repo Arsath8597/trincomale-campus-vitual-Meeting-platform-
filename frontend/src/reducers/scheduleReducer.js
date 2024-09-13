@@ -19,7 +19,7 @@ const ScheduleSlice =createSlice({
             return{
                 ...state,
                 loading:false,
-                schedule:action.payload.schedule
+                schedule:action.payload
             }
         },
 

@@ -12,7 +12,7 @@ const Singin = () => {
       <div className=' w-[500px] h-[420px] flex flex-col rounded-xl shadow-lg justify-center items-center  text-white'>
   
       
-      <form className='w-[400px]'>
+      <form className='lg:w-[400px]'>
         <h1 className='text-center py-3 text-2xl font-semibold'>
     Admin Sing In
         </h1>

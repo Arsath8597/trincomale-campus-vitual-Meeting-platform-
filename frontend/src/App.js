@@ -7,6 +7,8 @@ import { ToastContainer } from 'react-toastify';
 import Store from "./store"
 import { LoadUser } from './actions/authAction';
 import UserHome from "./user/Home"
+import UpcomingMeering from './user/UpcomingMeering';
+import Previous from "./user/Previous"
 const App = () => {
 
   useEffect(()=>{
@@ -21,6 +23,8 @@ const App = () => {
           <Route path="/userhome" element={<UserHome />} />
           <Route path="/singin" element={<SignInPage />} />
           <Route path="/adminlogin" element={<AdminLogIn />} />
+          <Route path="/upcomingmeeting" element={<UpcomingMeering />} />
+          <Route path="/previous" element={<Previous/>} />
         </Routes>
       </BrowserRouter>
     </div>
