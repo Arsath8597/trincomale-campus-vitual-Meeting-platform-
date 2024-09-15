@@ -6,7 +6,7 @@ import events from "../assets/event.png"
 import { motion } from 'framer-motion'
 const home = () => {
   return (
-    <div id='home' className='flex z-10 bg-custom-gradient flex-col  w-full pb-10'>
+    <div id='home' className='flex z-10 bg-custom-gradient flex-col  w-full pb-20'>
 
       <div className=' z-40 mt-48 text-white px-10'>
         <motion.h1

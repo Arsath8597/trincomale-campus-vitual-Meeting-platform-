@@ -67,7 +67,7 @@ Personal Room</li></Link>
 {open &&
 <div className='bg-gray-500 shadow-xl px-10 rounded-lg py-2 absolute'>
   
-  <p className='text-xl mt-3 cursor-pointer'>Profile</p>
+ <Link to="/userprofile"> <p className='text-xl mt-3 cursor-pointer'>Profile</p></Link>
   <p className='text-xl my-3 cursor-pointer'>Setting</p>
   <p className='text-red-500 text-xl cursor-pointer' onClick={handleLogout}>LogOut</p>
 </div>}

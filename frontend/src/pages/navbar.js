@@ -19,7 +19,7 @@ const Navbar = () => {
         <Link to="/"><img width={80} height={20} src={logo} alt='logo'/></Link>  
       
         <ul className='flex justify-center items-center'>
-          <li className='px-5 text-xl hover:underline'><a href='/#home'>Home</a></li>
+          <li className='px-5 text-xl hover:underline'><a href='/'>Home</a></li>
           <li className='px-5 text-xl hover:underline'><a href='/#Faculties'>Faculties</a></li>
           <li className='px-5 text-xl hover:underline'><a href='/#events'>Events</a></li>
           <li className='px-5 text-xl hover:underline'><a href='/#about'>About</a></li>

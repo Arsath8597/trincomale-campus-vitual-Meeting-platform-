@@ -9,6 +9,9 @@ import { LoadUser } from './actions/authAction';
 import UserHome from "./user/Home"
 import UpcomingMeering from './user/UpcomingMeering';
 import Previous from "./user/Previous"
+import Meeting from "./room/index"
+import RoomPage from './room/room';
+import UserProfile from "./user/Profile"
 const App = () => {
 
   useEffect(()=>{
@@ -21,7 +24,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/userhome" element={<UserHome />} />
+          <Route path="/meeting" element={<Meeting />} />
+          <Route path="/room/:roomId" element={<RoomPage />} />
           <Route path="/singin" element={<SignInPage />} />
+          <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/adminlogin" element={<AdminLogIn />} />
           <Route path="/upcomingmeeting" element={<UpcomingMeering />} />
           <Route path="/previous" element={<Previous/>} />

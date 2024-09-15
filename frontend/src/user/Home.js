@@ -25,7 +25,8 @@ import { MdJoinFull } from "react-icons/md";
       </div>
       <div className='flex gap-3 mt-10'>
 <UserHomeCard
-className="bg-orange-800"
+link="/meeting"
+className="bg-orange-700"
 Icon={MdCreate}
 Title="New Meeting"
 desc="Start an instant Meeting"/>
@@ -33,9 +34,10 @@ desc="Start an instant Meeting"/>
 Icon={MdJoinFull}
 Title="Join Meeting"
 desc="via invitation link"
-className="bg-blue-400"
+className="bg-blue-500"
 />
 <UserHomeCard
+
 Icon={RiCalendarScheduleFill}
 Title="Schedule Meeting"
 desc="Plan your meeting"
