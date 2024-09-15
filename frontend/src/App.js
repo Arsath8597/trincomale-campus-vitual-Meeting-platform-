@@ -12,6 +12,7 @@ import Previous from "./user/Previous"
 import Meeting from "./room/index"
 import RoomPage from './room/room';
 import UserProfile from "./user/Profile"
+import Schedule from "./user/scheduleService"
 const App = () => {
 
   useEffect(()=>{
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/userhome" element={<UserHome />} />
           <Route path="/meeting" element={<Meeting />} />
+          <Route path="/schedule" element={<Schedule />} />
           <Route path="/room/:roomId" element={<RoomPage />} />
           <Route path="/singin" element={<SignInPage />} />
           <Route path="/userprofile" element={<UserProfile />} />
