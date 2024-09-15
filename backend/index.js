@@ -13,9 +13,7 @@ app.use(cors(
 ))
 app.use(cookieParser());
 app.use(express.json())
-app.use("/",(req,res)=>{
-    res.send("hello")
-})
+
 app.use("/",userRoute)
 app.use("/",scheduleRouter)
 
