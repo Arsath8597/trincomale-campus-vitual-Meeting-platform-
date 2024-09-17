@@ -6,11 +6,11 @@ import { MdOutlineMailOutline } from "react-icons/md";
 
 const About = () => {
   return (
-    <div id='about' className='bg-custom-gradient1 text-white' >
-    <h1 className='text-center text-4xl font-semibold  py-10'>About Us</h1>
-   <div className='lg:px-20 px-5'>
-   <div>
-   <h1 className='text-2xl font-semibold my-5'>Get In Touch Us</h1>
+    <div id='about' className='bg-custom-gradient1 text-white flex flex-col items-center lg:items-start' >
+    <h1 className='text-center text-4xl flex flex-col items-center font-semibold  py-10'>About Us</h1>
+   <div className='lg:px-20 flex flex-col items-center lg:items-start'>
+   <div className='w-80'>
+   <h1 className='text-2xl text-center lg:text-left font-semibold my-5'>Get In Touch Us</h1>
     <p className=' lg:w-[700px] text-lg'>If you have any inquiries, do not hesitate to get in touch with us. Connect with us via the relevant contact numbers or send us a message and we would get back to you at our earliest.</p>
  
   </div>
@@ -30,7 +30,7 @@ const About = () => {
    </span></p>
   </div>
   </div>
-  <Button className={"text-end mx-32 mb-10 "}>Explore</Button>
+  <Button className={"  mb-10 lg:ml-20 "}>Explore</Button>
     </div>
   )
 }

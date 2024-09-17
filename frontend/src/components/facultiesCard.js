@@ -6,7 +6,6 @@ const FacultiesCard = ({className,title,description}) => {
   return (
     <div>
       <motion.div
-      
       className={`bg-card  text-black my-10 flex flex-col items-center justify-center w-80 h-52 rounded-lg shadow-lg  ${className}`}>
         <h1 className='text-xl mb-1'>{title}</h1>
         <h1 className='text-2xl'>{description}</h1>

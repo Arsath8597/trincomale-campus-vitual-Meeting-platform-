@@ -3,10 +3,10 @@ import FacultiesCard from '../components/facultiesCard'
 import { motion } from 'framer-motion'
 const Faculties = () => {
   return (
-    <div id='Faculties' className='bg-custom-gradient1 py-10 '>
+    <div id='Faculties' className='bg-custom-gradient1 py-10 flex-col flex items-center'>
         <h1 className='text-center py-10 text-4xl text-white font-semibold '>Here are our
         Faculties</h1>
-    <div className='bg-custom-gradient1 pl-10 lg:grid lg:pl-40 lg:grid-cols-3'>
+    <div className='bg-custom-gradient1  lg:grid lg:gap-7 lg:grid-cols-3'>
         <motion.div 
           initial={{opacity:0, y:0}}
           whileInView={{opacity:1,y:0}}
