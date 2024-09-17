@@ -4,16 +4,13 @@ import cookieParser from "cookie-parser";
 import scheduleRouter from "./routes/scheduleRoute.js"
 import cors from "cors"
 const app =express();
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://trincomale-campus-vitual-meeting-platform.vercel.app'); // Update to match the domain you will make the request from
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
-// Allow requests from multiple origins
-const allowedOrigins = [
-  'https://trincomale-campus-vitual-meeting-platform.vercel.app'
-];
+
 
 app.use(cors({
   origin: function (origin, callback) {
