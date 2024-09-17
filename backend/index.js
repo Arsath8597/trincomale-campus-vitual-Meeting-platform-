@@ -2,7 +2,7 @@ import express from "express";
 import userRoute from "./routes/userRoute.js"
 import cookieParser from "cookie-parser";
 import scheduleRouter from "./routes/scheduleRoute.js"
-import dotenv from 'dotenv';
+
 import cors from "cors"
 import connectDatabse from './config/database.js';
 
@@ -14,10 +14,10 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
-dotenv.config({path:"config/config.env"})
+// dotenv.config({path:"config/config.env"})
 connectDatabse()
-app.listen(process.env.PORT, () => {
-  console.log(`Server listening to Port ${process.env.PORT}`);
+app.listen(8000, () => {
+  console.log(`Server listening to Port 8000`);
 });
 
 app.use("/",userRoute)
