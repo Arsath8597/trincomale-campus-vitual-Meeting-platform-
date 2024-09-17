@@ -51,7 +51,7 @@ navigate("/userhome")
     <div className='flex flex-col  bg-custom-gradient  h-[100vh]'>
       <Navbar/>
       <div className='flex items-center justify-center mt-[200px]'>
-      <div className=' w-[500px]  h-[420px] flex flex-col rounded-xl shadow-lg justify-center items-center  text-white'>
+      <div className=' lg:w-[500px]  h-[420px] flex flex-col rounded-xl shadow-lg justify-center items-center  text-white'>
       <div>
       <button 
       onClick={()=>setIsUserLogin(true) } className='px-4 text-xl shadow-lg mx-1  bg-black bg-opacity-25 py-3  '>Student Login</button>

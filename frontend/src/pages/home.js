@@ -13,13 +13,13 @@ const home = () => {
         initial={{opacity:0, y:100}}
         whileInView={{opacity:1,y:0}}
         viewport={{amount:0.1}}
-        transition={{duration:0.5,ease:"easeOut",delay:0.1}} className='text-[38px] lg:text-[48px] uppercase bg-black bg-opacity-20 shadow-2xl rounded-2xl '>Provides The <hr/><span className='text-red-400'>best </span>
+        transition={{duration:0.5,ease:"easeOut",delay:0.1}} className='text-[32px] lg:text-[48px] uppercase bg-black bg-opacity-20 shadow-2xl rounded-2xl '>Provides The <hr/><span className='text-red-400'>best </span>
          Educational <span  className='text-red-400'>Environment</span></motion.h1>
         <motion.p 
          initial={{opacity:0, y:0}}
          whileInView={{opacity:1,y:0}}
          viewport={{amount:0.1}}
-         transition={{duration:0.8,ease:"easeOut",delay:0.5}} className='mt-10  px-16 text-xl lg:text-2xl  text-center'>Each faculty aims to provide education, research 
+         transition={{duration:0.8,ease:"easeOut",delay:0.5}} className='mt-10  lg:px-16 px-5 text-lg lg:text-2xl  text-center'>Each faculty aims to provide education, research 
             opportunities, and practical skills relevant to its 
             respective field, contributingmotion.  to the overall academic 
             diversity .</motion.p >

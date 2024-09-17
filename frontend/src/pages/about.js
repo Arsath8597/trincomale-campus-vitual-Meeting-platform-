@@ -30,7 +30,7 @@ const About = () => {
    </span></p>
   </div>
   </div>
-  <Button className={"text-end mx-20 mb-10"}>Explore</Button>
+  <Button className={"text-end mx-32 mb-10 "}>Explore</Button>
     </div>
   )
 }

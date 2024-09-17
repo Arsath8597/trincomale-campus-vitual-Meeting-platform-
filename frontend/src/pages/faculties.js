@@ -6,7 +6,7 @@ const Faculties = () => {
     <div id='Faculties' className='bg-custom-gradient1 py-10 '>
         <h1 className='text-center py-10 text-4xl text-white font-semibold '>Here are our
         Faculties</h1>
-    <div className='bg-custom-gradient1 lg:grid lg:pl-40 lg:grid-cols-3'>
+    <div className='bg-custom-gradient1 pl-10 lg:grid lg:pl-40 lg:grid-cols-3'>
         <motion.div 
           initial={{opacity:0, y:0}}
           whileInView={{opacity:1,y:0}}
