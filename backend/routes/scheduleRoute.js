@@ -5,6 +5,6 @@ import { createSchedule, getSchedule } from "../controller/scheduleController.js
 const router=express.Router()
 
 router.route('/createshedule').post(isAuthendicater,createSchedule)
-router.route('/getschedule').get(isAuthendicater,getSchedule)
+router.route('/getschedule').get(getSchedule)
 
 export default router
