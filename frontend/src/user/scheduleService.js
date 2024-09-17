@@ -35,27 +35,6 @@ const Home = () => {
 getSchedule()
 
   },[dispatch])
-
-  const handleLogout=async ()=>{
-    try {
-      dispatch(logOutRequest())
-      const res=await axios.post("/userlogout",{},{
-        withCredentials:true
-      })
-      
-      if(res.status ===200){
-        dispatch(logOutSuccess(res))
-        navigate("/singin")
-      }
-      else{
-        console.error("logout Fail")
-        dispatch(logOutFail())
-      }
-    } catch (error) {
-      console.error('Error occurred during logout:', error);
-    }
-
-  }
   console.log(schedule)
   return (
     <div>
@@ -72,7 +51,6 @@ getSchedule()
       ))
     }
 
-    <button onClick={handleLogout}>LogOut</button>
     </div>
   )
 }
