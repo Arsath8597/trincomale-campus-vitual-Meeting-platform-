@@ -22,7 +22,7 @@ const Home = () => {
   const handleLogout=async ()=>{
     try {
       dispatch(logOutRequest())
-      const res=await axios.post("https://trincomale-campus-vitual-meeting-backend.vercel.app/userlogout",{},{
+      const res=await axios.post("/userlogout",{},{
         withCredentials:true
       })
       

@@ -6,7 +6,7 @@ import { loadUserFail, loadUserRequest, loadUserSuccess, loginFail, loginRequest
 export const login=(email,password)=>async(dispatch)=>{
 try {
     dispatch(loginRequest())
-    const {data}=await axios.post("https://trincomale-campus-vitual-meeting-backend.vercel.app/userlogin",{email,password})
+    const {data}=await axios.post("/userlogin",{email,password})
     dispatch(loginSuccess(data))
 } catch (error) {
     dispatch(loginFail(error.response.data.message))
@@ -22,7 +22,7 @@ export const LoadUser=async(dispatch)=>{
                  "Content-type":"multipart/form-data"
             }
         }
-        const {data}=await axios.get("https://trincomale-campus-vitual-meeting-backend.vercel.app/getuserdata",config)
+        const {data}=await axios.get("/getuserdata",config)
         dispatch(loadUserSuccess(data))
     } catch (error) {
         dispatch(loadUserFail(error.response.data.message))
