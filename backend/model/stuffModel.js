@@ -3,14 +3,14 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import validator from "validator";
 
-const userSchema = mongoose.Schema({
+const StuffSchema = mongoose.Schema({
   name: {
     type: String,
     required: [true, "please enter the name"],
   },
   email: {
     type: String,
-    required: [true, "please enter the Email"],
+    required: [true, "email Required"],
     unique: true,
     validate: {
       // Correcting "validator" to "validate" for Mongoose schema
@@ -26,8 +26,7 @@ const userSchema = mongoose.Schema({
   },
   role: {
     type: String,
-
-    required: [true, "role requiest"],
+    default: "stuff",
   },
   createdAt: {
     type: Date,
@@ -35,35 +34,32 @@ const userSchema = mongoose.Schema({
   },
 });
 
-// hash password
-
-userSchema.pre("save", async function (next) {
+//hash password
+StuffSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     return next();
   }
   try {
     this.password = await bcrypt.hash(this.password, 10);
-    next();
-  } catch (error) {
-    next(error);
-  }
+  } catch (error) {}
 });
 
-// crreate jwt token
-userSchema.methods.genarateToken = function () {
+//create jwt token
+StuffSchema.methods.genarateToken = function () {
+  // Fixed typo
   const token = jwt.sign(
-    { id: this._id, email: this.email, roll: this.role },
-    "fjdjmdklfd",
+    // Corrected jwt=sign to jwt.sign
+    { id: this._id, email: this.email, role: this.role },
+    "djfkdjdss",
     { expiresIn: "1h" }
   );
   return token;
 };
-
 //compare password
-userSchema.methods.isValidPassword = async function (enterPassword) {
+StuffSchema.methods.isValidPassword = async function (enterPassword) {
   return await bcrypt.compare(enterPassword, this.password);
 };
 
-const user = mongoose.model("User", userSchema);
+const StuffModel = mongoose.model("stuff", StuffSchema);
 
-export default user;
+export default StuffModel;

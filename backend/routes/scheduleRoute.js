@@ -1,10 +1,13 @@
 import express from "express";
-import { isAuthendicater } from "../middleware/authendication.js";
-import { createSchedule, getSchedule } from "../controller/scheduleController.js";
+import { userAuthendicate } from "../middleware/userauthendication.js";
+import {
+  createSchedule,
+  getSchedule,
+} from "../controller/scheduleController.js";
 
-const router=express.Router()
+const router = express.Router();
 
-router.route('/createshedule').post(isAuthendicater,createSchedule)
-router.route('/getschedule').get(getSchedule)
+router.route("/createshedule").post(userAuthendicate, createSchedule);
+router.route("/getschedule").get(getSchedule);
 
-export default router
+export default router;
