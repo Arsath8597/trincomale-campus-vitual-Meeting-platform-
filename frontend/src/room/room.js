@@ -15,7 +15,7 @@ function RoomPage() {
         serverSecret,
         roomId,
         Date.now().toString(),
-        "Hasti Kapadiya"
+        "Type Your Name"
       );
       const zc = ZegoUIKitPrebuilt.create(kitToken);
       zc.joinRoom({
@@ -31,6 +31,7 @@ function RoomPage() {
         },
         showScreenSharingButton: false,
         showRoomTimer: true,
+        
         // onReturnToHomeScreenClicked?: () => void; // When the "Return to home screen" button is clicked, this callback is triggered. After setting up this callback, clicking the button will not navigate to the home screen; instead, you can add your own page navigation logic here.
       });
     };

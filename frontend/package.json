@@ -10,9 +10,11 @@
     "@testing-library/user-event": "^13.5.0",
     "@zegocloud/zego-uikit-prebuilt": "^2.9.0",
     "axios": "^1.7.5",
+    "chart.js": "^4.4.4",
     "css": "^3.0.0",
     "framer-motion": "^11.3.24",
     "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-redux": "^9.1.2",
@@ -49,9 +51,8 @@
       "last 1 safari version"
     ]
   },
- 
   "devDependencies": {
     "tailwindcss": "^3.4.9"
   },
-  "proxy":"https://trincomale-campus-vitual-meeting-backend.vercel.app"
+  "proxy": "http://localhost:8000"
 }

@@ -1,69 +1,67 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const authSlice = createSlice({
-  name: "auth",
+const stuffSlice = createSlice({
+  name: "stuff",
   initialState: {
     loading: false,
-    isAthundicate: false,
-    user: null,
+    isAuthendicated: false,
+    stuff: null,
     error: null,
   },
   reducers: {
-    loginRequest(state, action) {
+    stuffloginRequest(state, action) {
       return {
         ...state,
         loading: true,
       };
     },
-    loginSuccess(state, action) {
+    stuffloginSuccess(state, action) {
       return {
         loading: false,
-        isAthundicate: true,
-        user: action.payload.user,
+        isAuthendicated: true,
+        stuff: action.payload.admin,
       };
     },
-    loginFail(state, action) {
+    stuffloginFail(state, action) {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    },
+    loadStuffRequest(state, action) {
+      return {
+        ...state,
+        loading: true,
+      };
+    },
+    loadStuffSuccess(state, action) {
+      return {
+        loading: false,
+        isAuthendicated: true,
+        stuff: action.payload.stuff,
+      };
+    },
+    loadStuffFail(state, action) {
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
     },
-    loadUserRequest(state, action) {
+    stuffLogOutRequest(state, action) {
       return {
         ...state,
         loading: true,
       };
     },
-    loadUserSuccess(state, action) {
-      return {
-        loading: false,
-        isAthundicate: true,
-        user: action.payload.user,
-      };
-    },
-    loadUserFail(state, action) {
+    stuffLogOutSuccess(state, action) {
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        isAuthendicated: false,
       };
     },
-    logOutRequest(state, action) {
-      return {
-        ...state,
-        loading: true,
-      };
-    },
-    logOutSuccess(state, action) {
-      return {
-        ...state,
-        loading: false,
-        isAthundicate: false,
-      };
-    },
-
-    logOutFail(state, action) {
+    stuffLogOutFail(state, action) {
       return {
         ...state,
         error: action.payload,
@@ -71,16 +69,17 @@ const authSlice = createSlice({
     },
   },
 });
-const { actions, reducer } = authSlice;
+
+const { actions, reducer } = stuffSlice;
 export const {
-  logOutRequest,
-  logOutSuccess,
-  logOutFail,
-  loginRequest,
-  loginSuccess,
-  loginFail,
-  loadUserFail,
-  loadUserRequest,
-  loadUserSuccess,
+  stuffloginFail,
+  stuffLogOutFail,
+  stuffLogOutRequest,
+  stuffLogOutSuccess,
+  loadStuffFail,
+  loadStuffRequest,
+  loadStuffSuccess,
+  stuffloginRequest,
+  stuffloginSuccess,
 } = actions;
 export default reducer;

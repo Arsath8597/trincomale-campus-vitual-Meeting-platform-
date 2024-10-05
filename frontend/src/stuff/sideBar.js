@@ -15,6 +15,11 @@ import { IoCreate } from "react-icons/io5";
 import profile from "../assets/profile.jpg";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { IoIosArrowDropupCircle } from "react-icons/io";
+import {
+  stuffLogOutFail,
+  stuffLogOutRequest,
+  stuffLogOutSuccess,
+} from "../reducers/StuffReducer";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,9 +28,9 @@ const Home = () => {
 
   const handleLogout = async () => {
     try {
-      dispatch(logOutRequest());
+      dispatch(stuffLogOutRequest());
       const res = await axios.post(
-        "/userlogout",
+        "/stuffLogOut",
         {},
         {
           withCredentials: true,
@@ -33,11 +38,11 @@ const Home = () => {
       );
 
       if (res.status === 200) {
-        dispatch(logOutSuccess(res));
+        dispatch(stuffLogOutSuccess(res));
         navigate("/singin");
       } else {
         console.error("logout Fail");
-        dispatch(logOutFail());
+        dispatch(stuffLogOutFail());
       }
     } catch (error) {
       console.error("Error occurred during logout:", error);

@@ -1,20 +1,22 @@
-import AuthReducer from "./reducers/AuthReducer"
-import { configureStore ,combineReducers} from "@reduxjs/toolkit";
+import AuthReducer from "./reducers/AuthReducer";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import ScheduleReducer from "./reducers/scheduleReducer";
+import adminReducer from "./reducers/AdminReducer";
+import stuffState from "./reducers/StuffReducer";
 
+const reducer = combineReducers({
+  authState: AuthReducer,
+  scheduleState: ScheduleReducer,
+  adminState: adminReducer,
+  stuffState: stuffState,
+});
 
+const store = configureStore({
+  reducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
 
-const reducer=combineReducers({
-    authState:AuthReducer,
-    scheduleState:ScheduleReducer
-})
-
-const store=configureStore({
-    reducer,
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-          serializableCheck: false,
-        }),
-})
-
-export default store
+export default store;
