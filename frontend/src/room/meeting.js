@@ -1,20 +1,22 @@
-import React, { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from '../components/button';
+import React, { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/button";
 
 function HomePage() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   const navigate = useNavigate();
   const handleJoin = useCallback(() => {
-    if (value) {
-      navigate(`/room/${value}`);
+    if (value.trim()) {
+      navigate(`/room/${value.trim()}`);
     }
   }, [navigate, value]);
 
   return (
-    <div>
+    <div className="flex justify-center flex-col items-center">
+      <h1 className="text-xl text-white">Enter Your Code</h1>
       <input
+        className="px-10 py-3 rounded-lg my-3"
         type="text"
         placeholder="Enter Room Code"
         value={value}

@@ -9,20 +9,20 @@ const stuffSlice = createSlice({
     error: null,
   },
   reducers: {
-    stuffloginRequest(state, action) {
+    staffLoginRequest(state, action) {
       return {
         ...state,
         loading: true,
       };
     },
-    stuffloginSuccess(state, action) {
+    staffLoginSuccess(state, action) {
       return {
         loading: false,
         isAuthendicated: true,
-        stuff: action.payload.admin,
+        stuff: action.payload.stuff,
       };
     },
-    stuffloginFail(state, action) {
+    staffLoginFail(state, action) {
       return {
         ...state,
         error: action.payload,
@@ -67,19 +67,32 @@ const stuffSlice = createSlice({
         error: action.payload,
       };
     },
+    stuffDetailsRequest(state, action) {
+      return {
+        ...state,
+        loading: true,
+      };
+    },
+    stuffDetailsSuccess(state, action) {
+      return {
+        isAuthendicated: true,
+        loading: false,
+        stuff: action.payload.stuff,
+      };
+    },
   },
 });
 
 const { actions, reducer } = stuffSlice;
 export const {
-  stuffloginFail,
+  staffLoginFail,
   stuffLogOutFail,
   stuffLogOutRequest,
   stuffLogOutSuccess,
   loadStuffFail,
   loadStuffRequest,
   loadStuffSuccess,
-  stuffloginRequest,
-  stuffloginSuccess,
+  staffLoginRequest,
+  staffLoginSuccess,
 } = actions;
 export default reducer;

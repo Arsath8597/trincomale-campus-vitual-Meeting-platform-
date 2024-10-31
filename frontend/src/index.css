@@ -3,13 +3,35 @@
 @tailwind utilities;
 
 .scroll-smooth {
-    scroll-behavior: smooth;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 .no-scroll {
-    overflow: hidden;
+  overflow: hidden;
+} /* src/index.css */
+@layer utilities {
+  .animate-bounce {
+    animation: bounce 0.6s infinite alternate;
   }
+
+  .delay-75 {
+    animation-delay: 0.075s;
+  }
+
+  .delay-150 {
+    animation-delay: 0.15s;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-15px);
+    }
+  }
+}

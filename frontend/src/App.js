@@ -8,6 +8,9 @@ import Store from "./store";
 import { LoadUser } from "./actions/authAction";
 import UserHome from "./user/Home";
 import UpcomingMeering from "./user/UpcomingMeering";
+import StuffUpcomingMeering from "./staff/UpcomingMeering";
+import StuffPersonalRoom from "./staff/PersonalRoom";
+import StuffProfile from "./staff/Profile";
 import Previous from "./user/Previous";
 import Meeting from "./room/meeting";
 import RoomPage from "./room/room";
@@ -18,8 +21,9 @@ import AdminHome from "./admin/home";
 import AdminUser from "./admin/user";
 import AdminStuff from "./admin/stuff";
 import AdminAdmin from "./admin/admin";
-import StuffHome from "./stuff/home";
-import { LoadStaff } from "./actions/stuffAction";
+import StuffHome from "./staff/home";
+import StuffPrevious from "./staff/Previous";
+import { LoadStaff } from "./actions/staffAction";
 
 const App = () => {
   useEffect(() => {
@@ -38,6 +42,7 @@ const App = () => {
           <Route path="/room/:roomId" element={<RoomPage />} />
           <Route path="/singin" element={<SignInPage />} />
           <Route path="/personalRoom" element={<PersonalRoom />} />
+          <Route path="/stuffpersonalRoom" element={<StuffPersonalRoom />} />
           <Route path="/stuffhome" element={<StuffHome />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/adminlogin" element={<AdminLogIn />} />
@@ -46,6 +51,12 @@ const App = () => {
           <Route path="/adminadmin" element={<AdminAdmin />} />
           <Route path="/adminstuff" element={<AdminStuff />} />
           <Route path="/upcomingmeeting" element={<UpcomingMeering />} />
+          <Route path="/stuffprofile" element={<StuffProfile />} />
+          <Route path="/stuffprevious" element={<StuffPrevious />} />
+          <Route
+            path="/stuffupcomingmeeting"
+            element={<StuffUpcomingMeering />}
+          />
           <Route path="/previous" element={<Previous />} />
         </Routes>
       </BrowserRouter>

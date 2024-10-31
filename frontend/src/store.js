@@ -2,7 +2,7 @@ import AuthReducer from "./reducers/AuthReducer";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import ScheduleReducer from "./reducers/scheduleReducer";
 import adminReducer from "./reducers/AdminReducer";
-import stuffState from "./reducers/StuffReducer";
+import stuffState from "./reducers/StaffReducer";
 
 const reducer = combineReducers({
   authState: AuthReducer,

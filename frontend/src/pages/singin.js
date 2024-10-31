@@ -8,10 +8,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import {
-  stuffloginFail,
-  stuffloginRequest,
-  stuffloginSuccess,
-} from "../reducers/StuffReducer";
+  staffLoginFail,
+  staffLoginRequest,
+  staffLoginSuccess,
+} from "../reducers/StaffReducer";
 
 const Singin = () => {
   const [isUserLogin, setIsUserLogin] = useState(true);
@@ -23,22 +23,37 @@ const Singin = () => {
   const { loading, error, isAthundicate } = useSelector(
     (state) => state.authState
   );
-  const { isAuthendicated } = useSelector((state) => state.stuffState);
+  const {
+    loading: loading1,
+    error: error1,
+    isAuthendicated,
+  } = useSelector((state) => state.stuffState);
 
+  console.log(isAuthendicated);
   const toggleLoginType = () => {
     setIsUserLogin(!isUserLogin);
   };
-  const handlestuffSubmit = async (e) => {
+
+  const handlestaffSubmit = async (e) => {
     e.preventDefault();
     try {
-      dispatch(stuffloginRequest());
+      dispatch(staffLoginRequest());
       const { data } = await axios.post("/stuffLogin", {
         email,
         password: Password,
       });
-      dispatch(stuffloginSuccess(data));
+      dispatch(staffLoginSuccess(data));
+      toast("Staff Sign in Success", {
+        position: "top-center",
+        type: "success",
+      });
+      navigate("/stuffhome");
     } catch (error) {
-      dispatch(stuffloginFail(error.response.data.message));
+      toast("Incorrect Password or Email", {
+        position: "top-center",
+        type: "error",
+      });
+      dispatch(staffLoginFail(error.response.data.message));
     }
   };
   useEffect(() => {
@@ -46,12 +61,24 @@ const Singin = () => {
       navigate("/stuffhome");
     }
   }, []);
+
   const handleUserSubmit = (e) => {
     e.preventDefault();
-    if (email && Password) {
-      dispatch(login(email, Password));
-    } else {
-      toast("Please fill in all fields", {
+    try {
+      if (email && Password) {
+        toast("Sign in Succesfull", {
+          position: "top-center",
+          type: "success",
+        });
+        dispatch(login(email, Password));
+      } else {
+        toast("Please fill in all fields", {
+          position: "top-center",
+          type: "error",
+        });
+      }
+    } catch (error) {
+      toast("Incorrect Password or Email", {
         position: "top-center",
         type: "error",
       });
@@ -62,12 +89,6 @@ const Singin = () => {
     if (isAthundicate) {
       navigate("/userhome");
     }
-
-    // if(error){
-    //   toast(error,{
-    //   position:'top-center',
-    //   type:"error"
-    // })}
   }, [isAthundicate, error, navigate]);
   return (
     <div className="flex flex-col  bg-custom-gradient  h-[100vh]">
@@ -121,7 +142,7 @@ const Singin = () => {
                 </Button>
               ) : (
                 <Button
-                  onclick={handlestuffSubmit}
+                  onclick={handlestaffSubmit}
                   type="submit"
                   className={"mt-5 "}
                 >

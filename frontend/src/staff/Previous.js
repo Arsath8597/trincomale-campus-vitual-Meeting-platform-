@@ -5,7 +5,7 @@ const Privious = () => {
   return (
     <div className="bg-gray-800 flex">
       <SideBar />
-      <div className="p-10 flex w-full flex-col ">
+      <div className="p-10 flex w-full flex-col lg:pl-60 ">
         <h1 className="text-3xl font-semibold  text-white text-center mb-10">
           Upcoming Meeting
         </h1>

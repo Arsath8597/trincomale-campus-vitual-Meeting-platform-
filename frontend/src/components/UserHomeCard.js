@@ -1,14 +1,19 @@
-import React from 'react'
-import { MdCreate } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
- const UserHomeCard = ({link,className,Icon,Title,desc}) => {
+const UserHomeCard = ({ link, className, Icon, Title, desc, onclick }) => {
   return (
-    <div className={`w-52 p-3 rounded-xl bg-bg-green-700 h-60 ${className}`}>
-        <Link to={link}>{Icon && <Icon size={30} />}</Link>
-<p className='mt-24 text-xl'>{Title}</p>
-<p className='text-sm mt-2'>{desc}</p>
+    <div
+      onClick={onclick}
+      className={`w-52 p-4 rounded-xl bg-green-700 h-60 flex flex-col justify-between items-start text-white shadow-lg cursor-pointer ${className}`}
+    >
+      <Link to={link} className="flex items-center mb-2">
+        {Icon && <Icon size={30} className="mr-2" />}
+        <h1 className="text-lg font-semibold">{Title}</h1>
+      </Link>
+      <p className="text-sm mt-2">{desc}</p>
     </div>
-  )
-}
-export default UserHomeCard
+  );
+};
+
+export default UserHomeCard;

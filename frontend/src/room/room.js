@@ -7,6 +7,8 @@ function RoomPage() {
   const elementRef = useRef(null);
 
   useEffect(() => {
+    if (!roomId) return; // Early return if no roomId
+
     const meeting = async () => {
       const appID = 1521168203;
       const serverSecret = "293e597db8d3fbbabd3169ee08a4dba4";
@@ -31,8 +33,6 @@ function RoomPage() {
         },
         showScreenSharingButton: false,
         showRoomTimer: true,
-        
-        // onReturnToHomeScreenClicked?: () => void; // When the "Return to home screen" button is clicked, this callback is triggered. After setting up this callback, clicking the button will not navigate to the home screen; instead, you can add your own page navigation logic here.
       });
     };
 

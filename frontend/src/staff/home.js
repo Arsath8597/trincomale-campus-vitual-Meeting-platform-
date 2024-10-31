@@ -19,7 +19,7 @@ const Home = () => {
   const [meetingOpen, setMeetingOpen] = useState(false);
   const [shedule, setShedule] = useState({
     subject: "",
-    descrition: "",
+    roomid: "",
     batch: "",
     date: "",
   });
@@ -40,7 +40,7 @@ const Home = () => {
       alert(res.data.message);
       setShedule({
         subject: "",
-        descrition: "",
+        roomid: "",
         batch: "",
         date: "",
       });
@@ -50,9 +50,9 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row bg-slate-800 min-h-screen">
+    <div className="flex flex-col lg:flex-row  bg-slate-800 min-h-screen">
       <SideBar />
-      <div className="text-white flex flex-col items-center lg:mx-10 w-full">
+      <div className="text-white flex flex-col lg:pl-60 items-center lg:mx-10 w-full">
         <p className="text-2xl mt-6 lg:mt-10">Welcome To John Wick</p>
 
         {/* Time Display */}
@@ -174,11 +174,11 @@ const Home = () => {
 
                 <div>
                   <label className="block text-lg font-semibold text-gray-300 mb-1">
-                    Description
+                    Room Id
                   </label>
-                  <textarea
-                    name="descrition"
-                    value={shedule.descrition}
+                  <input
+                    name="roomid"
+                    value={shedule.roomid}
                     onChange={SheduleHanldeChange}
                     rows="3"
                     className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white"

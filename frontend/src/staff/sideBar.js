@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   logOutFail,
   logOutRequest,
@@ -24,9 +24,10 @@ import profile from "../assets/profile.jpg";
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false); // Profile section toggle
+  const [menuOpen, setMenuOpen] = useState(false); // Sidebar menu toggle
 
+  // Handle user logout
   const handleLogout = async () => {
     try {
       dispatch(logOutRequest());
@@ -48,16 +49,16 @@ const Home = () => {
     }
   };
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const handleProfileClick = () => setOpen(!open);
+  const toggleMenu = () => setMenuOpen(!menuOpen); // Toggle sidebar
+  const handleProfileClick = () => setOpen(!open); // Toggle profile options
 
   return (
-    <div className="flex h-full absolute">
-      {/* Sidebar / Topbar Navigation */}
+    <div className="flex h-full absolute ">
+      {/* Sidebar / Navigation */}
       <div
         className={`${
           menuOpen ? "translate-x-0" : "-translate-x-full"
-        } bg-gray-600 transition-transform duration-300 md:translate-x-0 fixed md:relative z-10 flex flex-col w-60 h-full md:h-[100vh] p-5`}
+        } bg-gray-700   text-white mx- transition-transform duration-300 md:translate-x-0 fixed md:relative z-10 flex flex-col w-60 h-full md:h-screen p-5`}
       >
         <button
           className="md:hidden text-white text-3xl self-end"
@@ -65,41 +66,37 @@ const Home = () => {
         >
           <MdClose />
         </button>
-        <ul className="text-white space-y-8 text-xl  font-semibold mt-10">
-          <Link to="/userhome">
+
+        <ul className="space-y-8 text-xl my-5 font-semibold mt-10">
+          <Link to="/stuffhome">
             <li className="flex items-center gap-3 my-5 cursor-pointer">
-              <MdHome />
-              Home
+              <MdHome /> Home
             </li>
           </Link>
-          <Link to="/upcomingmeeting">
+          <Link to="/stuffupcomingmeeting">
             <li className="flex items-center gap-3 cursor-pointer">
-              <MdCalendarToday />
-              Upcoming
+              <MdCalendarToday /> Upcoming
             </li>
           </Link>
-          <Link to="/previous">
-            <li className="flex items-center gap-3 my-5  cursor-pointer">
-              <MdCalendarToday />
-              Previous
+          <Link to="/stuffprevious">
+            <li className="flex items-center  gap-3 my-5 cursor-pointer">
+              <MdCalendarToday /> Previous
             </li>
           </Link>
-          <Link to="/recordings">
+          {/* <Link to="/recordings">
             <li className="flex items-center gap-3 cursor-pointer">
-              <MdVideoLibrary />
-              Recordings
+              <MdVideoLibrary /> Recordings
             </li>
-          </Link>
-          <Link to="/personalRoom">
-            <li className="flex items-center gap-3 my-5  cursor-pointer">
-              <MdPerson />
-              Personal Room
+          </Link> */}
+          <Link to="/stuffpersonalRoom">
+            <li className="flex items-center gap-3 my-5 cursor-pointer">
+              <MdPerson /> Personal Room
             </li>
           </Link>
         </ul>
 
         {/* Profile Section */}
-        <div className="mt-auto  text-white">
+        <div className="mt-auto">
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={handleProfileClick}
@@ -115,8 +112,8 @@ const Home = () => {
           </div>
 
           {open && (
-            <div className="bg-gray-500 shadow-lg p-4 rounded-lg ">
-              <Link to="/userprofile">
+            <div className="bg-gray-600 p-4 mt-2 rounded-lg shadow-lg">
+              <Link to="/stuffprofile">
                 <p className="text-xl cursor-pointer">Profile</p>
               </Link>
               <p className="text-xl cursor-pointer my-2">
@@ -126,7 +123,7 @@ const Home = () => {
                 className="text-red-500 text-xl cursor-pointer flex items-center"
                 onClick={handleLogout}
               >
-                <MdLogout className="mr-2" /> LogOut
+                <MdLogout className="mr-2" /> Logout
               </p>
             </div>
           )}
@@ -134,7 +131,7 @@ const Home = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 md:ml-60">
+      <div className="flex-1 md:ml-60 p-6  min-h-screen">
         <button
           className="md:hidden text-white text-3xl m-5"
           onClick={toggleMenu}
