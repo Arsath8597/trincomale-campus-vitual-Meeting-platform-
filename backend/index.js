@@ -18,7 +18,7 @@ app.use(
     credentials: true,
   })
 );
-dotenv.config({ path: "config/config.env" });
+
 connectDatabse();
 app.listen(8000, () => {
   console.log(`Server listening to Port 8000`);
