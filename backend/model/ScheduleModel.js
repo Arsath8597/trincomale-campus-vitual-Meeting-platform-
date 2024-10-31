@@ -6,7 +6,7 @@ const ScheduleShcema = new mongoose.Schema(
       type: String,
       required: [true, "please enter the Subject"],
     },
-    descrition: {
+    roomid: {
       type: String,
       required: [true, "Please enter the description"],
     },
@@ -14,10 +14,14 @@ const ScheduleShcema = new mongoose.Schema(
       type: String,
       required: [true, "please enter the batch"],
     },
-    user: {
+    stuff: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "User",
+      ref: "Stuff",
+    },
+    date: {
+      type: String,
+      required: [true, "pleasee enter the Date"],
     },
   },
   { timestamps: true }

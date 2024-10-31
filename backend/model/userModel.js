@@ -29,6 +29,14 @@ const userSchema = mongoose.Schema({
 
     required: [true, "role requiest"],
   },
+  course: {
+    type: String,
+    required: [true, "please enter the course"],
+  },
+  batch: {
+    type: Number,
+    required: [true, "Batch Requires"],
+  },
   createdAt: {
     type: Date,
     default: Date.now,

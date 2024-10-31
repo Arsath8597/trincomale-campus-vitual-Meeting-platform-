@@ -11,12 +11,14 @@ import connectDatabse from "./config/database.js";
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
-// app.use(cors({
-//   origin: 'https://trincomale-campus-vitual-meeting-platform.vercel.app',
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   credentials: true,
-// }));
-// dotenv.config({path:"config/config.env"})
+app.use(
+  cors({
+    origin: "https://trincomale-campus-vitual-meeting-platform.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+dotenv.config({ path: "config/config.env" });
 connectDatabse();
 app.listen(8000, () => {
   console.log(`Server listening to Port 8000`);

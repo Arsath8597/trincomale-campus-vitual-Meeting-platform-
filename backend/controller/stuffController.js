@@ -97,3 +97,65 @@ export const StuffGetData = async (req, res) => {
     });
   }
 };
+
+//get all Stuff information
+export const getAllStuff = async (req, res) => {
+  try {
+    const stuff = await Stuff.find();
+
+    // If no stuff are found, return an appropriate message
+    if (!stuff || stuff.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "No stuff found",
+      });
+    }
+
+    res.status(200).json({
+      message: "Successfully fetched stuff data",
+      data: stuff,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      error: error.message,
+    });
+  }
+};
+
+//Delete Stuff
+export const deleteStuff = async (req, res) => {
+  try {
+    const stuffId = req.params.id;
+    const deleteStuff = await Stuff.findByIdAndDelete(stuffId);
+    res.json({
+      success: true,
+      message: "succesfully Stuff deeleted",
+    });
+    if (!deleteStuff) {
+      return res.status(404).json({
+        success: false,
+        message: "Stuff not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+// update user
+export const updateStuff = async (req, res) => {
+  try {
+    const StuffId = req.params.id;
+    const updateStuff = await Stuff.findByIdAndUpdate(StuffId, req.body, {
+      new: true,
+    });
+    res.json({
+      success: true,
+      message: "stuff data updated",
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};

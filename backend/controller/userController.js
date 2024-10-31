@@ -9,7 +9,7 @@ const options = {
 };
 // Register function
 export const RegisterUser = async (req, res) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password, role, batch, course } = req.body;
 
   try {
     const user = await User.create({
@@ -17,6 +17,8 @@ export const RegisterUser = async (req, res) => {
       email,
       password,
       role,
+      course,
+      batch,
     });
     const token = user.genarateToken();
     res.status(200).json({
@@ -96,15 +98,60 @@ export const getUserData = async (req, res) => {
 export const getAllUser = async (req, res) => {
   try {
     const users = await User.find();
+
+    // If no users are found, return an appropriate message
+    if (!users || users.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "No users found",
+      });
+    }
+
     res.status(200).json({
-      message: "succesfully get user data",
+      message: "Successfully fetched user data",
       data: users,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Error fetching users",
+      message: "Something went wrong",
       error: error.message,
     });
+  }
+};
+
+//Delete User
+export const deleteUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const deleteUser = await User.findByIdAndDelete(userId);
+    res.json({
+      success: true,
+      message: "succesfully user deeleted",
+    });
+    if (!deleteUser) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+// update user
+export const updateUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const updateUser = await User.findByIdAndUpdate(userId, req.body, {
+      new: true,
+    });
+    res.json({
+      success: true,
+      message: "user data updated",
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
   }
 };
