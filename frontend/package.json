@@ -54,5 +54,5 @@
   "devDependencies": {
     "tailwindcss": "^3.4.9"
   },
-  "proxy": "https://trincomale-campus-vitual-meeting-backend.vercel.app/?vercelToolbarCode=M7HVv7UdPRT4-QW"
+  "proxy": "https://trincomale-campus-vitual-meeting-platform-j7a5.vercel.app"
 }
