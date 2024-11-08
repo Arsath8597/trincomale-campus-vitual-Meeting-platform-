@@ -10,8 +10,8 @@ function RoomPage() {
     if (!roomId) return; // Early return if no roomId
 
     const meeting = async () => {
-      const appID = 1521168203;
-      const serverSecret = "293e597db8d3fbbabd3169ee08a4dba4";
+      const appID = 676163634;
+      const serverSecret = "d4c9cd6d68574aa1b2a2aeac5199cf2c";
       const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
         appID,
         serverSecret,

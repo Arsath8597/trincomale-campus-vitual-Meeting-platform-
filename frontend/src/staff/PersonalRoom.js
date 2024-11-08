@@ -4,27 +4,20 @@ import SideBar from "./sideBar";
 
 const Room = () => {
   return (
-    <div className="bg-gray-900 min-h-screen flex">
-      {/* Sidebar */}
+    <div className="bg-gray-900 min-h-screen flex flex-col lg:flex-row">
       <SideBar />
 
-      {/* Main Content */}
-      <div className="flex-1 p-8 lg:pl-60 ">
-        <div className="bg-gray-800 rounded-lg shadow-lg p-6 mb-6">
-          <h1 className="text-3xl font-bold text-white mb-2">User Details</h1>
-          <div className="text-white text-lg space-y-2">
-            <p>
-              <span className="font-semibold">Name:</span> Arsath
-            </p>
-            <p>
-              <span className="font-semibold">Course:</span> B.Sc. Computer
-              Science
-            </p>
-          </div>
+      <div className="p-6 lg:p-10 w-full lg:ml-60 flex flex-col items-center lg:items-start">
+        <div className="bg-gray-800 p-6 rounded-lg shadow-md mb-8 text-white w-full lg:w-3/4">
+          <label className="block text-xl font-semibold mb-2">
+            Name: Arsath
+          </label>
+          <label className="block text-xl font-semibold">
+            Course: BSc Computer Science
+          </label>
         </div>
 
-        {/* Meeting Component */}
-        <div className="bg-gray-800 rounded-lg shadow-lg p-6">
+        <div className="w-full lg:w-3/4">
           <Meeting />
         </div>
       </div>

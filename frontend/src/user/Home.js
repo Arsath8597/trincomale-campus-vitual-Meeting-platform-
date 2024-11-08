@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <div className="flex flex-col lg:flex-row bg-slate-800 min-h-screen">
       <SideBar />
-      <div className="text-white flex flex-col items-center lg:mx-10 w-full">
+      <div className="text-white lg:ml-60 flex flex-col items-center lg:mx-10 w-full">
         <p className="text-2xl mt-6 lg:mt-10">Welcome To John Wick</p>
 
         {/* Time Display */}

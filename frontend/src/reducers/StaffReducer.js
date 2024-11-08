@@ -57,6 +57,7 @@ const stuffSlice = createSlice({
     stuffLogOutSuccess(state, action) {
       return {
         ...state,
+        stuff: null,
         loading: false,
         isAuthendicated: false,
       };

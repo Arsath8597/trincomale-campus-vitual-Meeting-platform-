@@ -84,12 +84,12 @@ const Home = () => {
               Previous
             </li>
           </Link>
-          <Link to="/recordings">
+          {/* <Link to="/recordings">
             <li className="flex items-center gap-3 cursor-pointer">
               <MdVideoLibrary />
               Recordings
             </li>
-          </Link>
+          </Link> */}
           <Link to="/personalRoom">
             <li className="flex items-center gap-3 my-5  cursor-pointer">
               <MdPerson />
@@ -117,11 +117,11 @@ const Home = () => {
           {open && (
             <div className="bg-gray-500 shadow-lg p-4 rounded-lg ">
               <Link to="/userprofile">
-                <p className="text-xl cursor-pointer">Profile</p>
+                <p className="text-2xl my-2 cursor-pointer">Profile</p>
               </Link>
-              <p className="text-xl cursor-pointer my-2">
+              {/* <p className="text-xl cursor-pointer my-2">
                 <MdSettings className="inline-block mr-2" /> Settings
-              </p>
+              </p> */}
               <p
                 className="text-red-500 text-xl cursor-pointer flex items-center"
                 onClick={handleLogout}

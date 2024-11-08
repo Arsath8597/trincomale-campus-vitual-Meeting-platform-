@@ -65,7 +65,7 @@ const UpcomingMeeting = () => {
     <div className="flex min-h-screen bg-gray-900">
       <SideBar />
 
-      <div className="flex-grow p-6">
+      <div className="flex-grow p-6 lg:ml-60">
         <h1 className="text-4xl font-bold text-white text-center mb-12">
           Upcoming Meetings
         </h1>

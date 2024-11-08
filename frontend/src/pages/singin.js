@@ -43,11 +43,12 @@ const Singin = () => {
         password: Password,
       });
       dispatch(staffLoginSuccess(data));
-      toast("Staff Sign in Success", {
+
+      navigate("/stuffhome");
+      toast("Successfully signed in!", {
         position: "top-center",
         type: "success",
       });
-      navigate("/stuffhome");
     } catch (error) {
       toast("Incorrect Password or Email", {
         position: "top-center",
@@ -66,10 +67,6 @@ const Singin = () => {
     e.preventDefault();
     try {
       if (email && Password) {
-        toast("Sign in Succesfull", {
-          position: "top-center",
-          type: "success",
-        });
         dispatch(login(email, Password));
       } else {
         toast("Please fill in all fields", {
@@ -88,8 +85,12 @@ const Singin = () => {
   useEffect(() => {
     if (isAthundicate) {
       navigate("/userhome");
+      toast("Successfully signed in!", {
+        position: "top-center",
+        type: "success",
+      });
     }
-  }, [isAthundicate, error, navigate]);
+  }, [isAthundicate, error, navigate, toast]);
   return (
     <div className="flex flex-col  bg-custom-gradient  h-[100vh]">
       <Navbar />
