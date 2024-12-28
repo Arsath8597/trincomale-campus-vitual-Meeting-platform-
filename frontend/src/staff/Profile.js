@@ -12,7 +12,9 @@ const Profile = () => {
   useEffect(() => {
     const getdata = async () => {
       try {
-        const res = await axios.get("/stuffgetdata", { withCredentials: true });
+        const res = await axios.get("http://localhost:8000/stuffgetdata", {
+          withCredentials: true,
+        });
         console.log("API response structure:", res.data);
         if (res.data && Array.isArray(res.data.stuff)) {
           setStaff(res.data.stuff);

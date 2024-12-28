@@ -14,7 +14,13 @@ const Navbar = () => {
     <div className="fixed flex z-50 w-full">
       <div className="lg:flex hidden w-full bg-custom-gradient z-50 justify-between px-10 items-center">
         <Link to="/">
-          <img width={80} height={20} src={logo} alt="logo" />
+          <img
+            width={80}
+            height={20}
+            src={logo}
+            alt="logo"
+            className="bg-white rounded-full"
+          />
         </Link>
 
         <ul className="flex justify-center items-center">

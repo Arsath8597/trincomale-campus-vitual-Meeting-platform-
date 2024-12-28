@@ -34,7 +34,9 @@ const UpcomingMeering = () => {
       dispatch(scheduleGetRequest());
 
       try {
-        const res = await axios.get("/getschedule", { withCredentials: true });
+        const res = await axios.get("http://localhost:8000/getschedule", {
+          withCredentials: true,
+        });
         console.log("Fetched Schedule:", res.data);
 
         if (Array.isArray(res.data.schedule) && res.data.schedule.length > 0) {

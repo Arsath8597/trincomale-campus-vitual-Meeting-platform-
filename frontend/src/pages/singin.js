@@ -17,6 +17,7 @@ const Singin = () => {
   const [isUserLogin, setIsUserLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  axios.defaults.withCredentials = true;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,10 +39,14 @@ const Singin = () => {
     e.preventDefault();
     try {
       dispatch(staffLoginRequest());
-      const { data } = await axios.post("/stuffLogin", {
-        email,
-        password: Password,
-      });
+      const { data } = await axios.post(
+        "http://localhost:8000/stuffLogin",
+        {
+          email,
+          password: Password,
+        },
+        { withCredentials: true }
+      );
       dispatch(staffLoginSuccess(data));
 
       navigate("/stuffhome");

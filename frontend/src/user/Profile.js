@@ -12,7 +12,9 @@ const Profile = () => {
   useEffect(() => {
     const getdata = async () => {
       try {
-        const res = await axios.get("/getuserdata", { withCredentials: true });
+        const res = await axios.get("http://localhost:8000/getuserdata", {
+          withCredentials: true,
+        });
 
         if (Array.isArray(res.data.user)) {
           setStaff(res.data.user); // If data is an array

@@ -3,25 +3,34 @@ import Button from "../components/button";
 import Navbar from "../pages/navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { adminloginRequest, adminloginSuccess } from "../reducers/AdminReducer";
+import {
+  adminloginFail,
+  adminloginRequest,
+  adminloginSuccess,
+} from "../reducers/AdminReducer";
 import axios from "axios";
-import { loginFail } from "../reducers/AuthReducer";
 import { toast } from "react-toastify";
 const Singin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const { loading, error, isAuthenticated } = useSelector(
     (state) => state.adminState
   );
-
+  axios.defaults.withCredentials = true;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       dispatch(adminloginRequest());
-      const { data } = await axios.post("/adminlogin", { email, password });
+      const { data } = await axios.post(
+        "http://localhost:8000/adminlogin",
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      );
       dispatch(adminloginSuccess(data));
       toast("Admin Sign in Success", {
         position: "top-center",
@@ -29,7 +38,7 @@ const Singin = () => {
       });
       Navigate("/adminhome");
     } catch (error) {
-      dispatch(loginFail(error.response.data.message));
+      dispatch(adminloginFail(error.response.data.message));
     }
   };
 

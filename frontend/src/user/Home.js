@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "./sideBar";
 import Bg from "../assets/bg.png";
 import UserHomeCard from "../components/UserHomeCard";
@@ -23,7 +23,33 @@ const Home = () => {
     batch: "",
     date: "",
   });
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
 
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      setTime(
+        now.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })
+      );
+      setDate(now.toLocaleDateString("en-US", options));
+    };
+
+    updateTime(); // Initial call to set time and date
+    const timer = setInterval(updateTime, 1000); // Update every second
+
+    return () => clearInterval(timer); // Cleanup interval on component unmount
+  }, []);
   const batch = [2022, 2023, 2024];
 
   const handleNewOpen = () => setNewOpen(!newOpen);
@@ -53,7 +79,7 @@ const Home = () => {
     <div className="flex flex-col lg:flex-row bg-slate-800 min-h-screen">
       <SideBar />
       <div className="text-white lg:ml-60 flex flex-col items-center lg:mx-10 w-full">
-        <p className="text-2xl mt-6 lg:mt-10">Welcome To John Wick</p>
+        <p className="text-2xl mt-6 lg:mt-10">Welcome To Raihan</p>
 
         {/* Time Display */}
         <div className="w-[90%] lg:w-[75vw] h-[40vh] rounded-xl mt-6 lg:mt-10 shadow-2xl bg-gray-700 flex flex-col lg:flex-row justify-between items-center p-6 lg:px-10">
@@ -61,8 +87,8 @@ const Home = () => {
             <h1 className="bg-slate-500 rounded-lg px-4 py-3 text-2xl mb-5">
               Current Time
             </h1>
-            <p className="text-[40px] lg:text-[50px] font-semibold">10:20 AM</p>
-            <p className="text-xl">Wednesday, March 27, 2024</p>
+            <p className="text-[40px] lg:text-[50px] font-semibold">{time}</p>
+            <p className="text-xl">{date}</p>
           </div>
           <img
             src={Bg}
@@ -77,7 +103,7 @@ const Home = () => {
             <div className="bg-gray-800 w-11/12 max-w-lg p-8 rounded-xl shadow-2xl space-y-6 transform transition-all duration-300 hover:scale-105">
               <div className="text-white text-center space-y-2">
                 <p className="text-2xl font-semibold">
-                  Name: <span className="font-normal">Arsath</span>
+                  Name: <span className="font-normal">Raihan</span>
                 </p>
                 <p className="text-2xl font-semibold">
                   Course:{" "}
@@ -101,7 +127,7 @@ const Home = () => {
               <div className="text-white text-center space-y-2">
                 <h1 className="text-2xl font-bold">Join Meeting</h1>
                 <p className="text-xl font-semibold">
-                  Name: <span className="font-normal">Arsath</span>
+                  Name: <span className="font-normal">Raihan</span>
                 </p>
                 <p className="text-xl font-semibold">
                   Course:{" "}
@@ -214,13 +240,13 @@ const Home = () => {
             desc="via invitation link"
             className="bg-blue-500"
           />
-          <UserHomeCard
+          {/* <UserHomeCard
             onclick={handleMeetingOpen}
             Icon={RiCalendarScheduleFill}
             Title="Schedule Meeting"
             desc="Plan your meeting"
             className="bg-green-700"
-          />
+          /> */}
           <UserHomeCard
             Icon={MdOutlineStreetview}
             Title="View Record"

@@ -35,7 +35,10 @@ const User = () => {
   const hanldeSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/adminRegister", userData);
+      const res = await axios.post(
+        "http://localhost:8000/adminRegister",
+        userData
+      );
       alert(res.data.message);
     } catch (error) {
       alert(error.response.data.error);

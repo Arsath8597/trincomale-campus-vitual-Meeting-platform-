@@ -24,7 +24,9 @@ const Home = () => {
     dispatch(scheduleGetRequest());
     const getSchedule = async () => {
       try {
-        const res = await axios.get("/getschedule", { withCredentials: true });
+        const res = await axios.get("http://localhost:8000/getschedule", {
+          withCredentials: true,
+        });
         console.log(schedule);
         if (Array.isArray(res.data.schedule)) {
           // Check if res.data.schedule is an array

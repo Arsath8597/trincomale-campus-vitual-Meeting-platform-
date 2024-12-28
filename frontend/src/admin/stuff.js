@@ -35,7 +35,10 @@ const User = () => {
   const hanldeSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/stuffRegister", userData);
+      const res = await axios.post(
+        "http://localhost:8000/stuffRegister",
+        userData
+      );
       alert(res.data.message);
     } catch (error) {
       alert(error.response.data.error);
@@ -54,7 +57,7 @@ const User = () => {
       dispatch(usergetRequest());
 
       // Make the API call
-      const { data } = await axios.get("/stuffgetalldata");
+      const { data } = await axios.get("http://localhost:8000/stuffgetalldata");
 
       // Dispatch success with fetched data
       dispatch(usergetSuccess(data.data));
@@ -69,7 +72,7 @@ const User = () => {
   // delete User
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`/stuffdeletedata/${id}`);
+      await axios.delete(`http://localhost:8000/stuffdeletedata/${id}`);
       setUser(user.filter((u) => u._id !== id));
       alert("user Deleted");
     } catch (error) {
@@ -89,7 +92,10 @@ const User = () => {
 
   const saveUpdate = async (id) => {
     try {
-      await axios.put(`/stuffupdatedata/${id}`, updatedData);
+      await axios.put(
+        `http://localhost:8000/stuffupdatedata/${id}`,
+        updatedData
+      );
       const updateUsers = user.map((u) =>
         u._id === id ? { ...u, ...updatedData } : u
       );

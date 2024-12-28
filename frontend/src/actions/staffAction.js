@@ -14,7 +14,11 @@ export const LoadStaff = async (dispatch) => {
         "Content-type": "multipart/form-data",
       },
     };
-    const { data } = await axios.get("/stuffgetdata", config);
+    const { data } = await axios.get(
+      "http://localhost:8000/stuffgetdata",
+      config,
+      { withCredentials: true }
+    );
     dispatch(loadStuffSuccess(data));
   } catch (error) {
     dispatch(loadStuffFail(error.response.data.message));

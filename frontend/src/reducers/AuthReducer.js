@@ -5,7 +5,7 @@ const authSlice = createSlice({
   initialState: {
     loading: false,
     isAthundicate: false,
-    user: null,
+    user: [],
     error: null,
   },
   reducers: {

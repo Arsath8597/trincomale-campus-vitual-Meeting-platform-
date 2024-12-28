@@ -35,7 +35,7 @@ const UpcomingMeeting = () => {
       dispatch(scheduleGetAllRequest());
 
       try {
-        const res = await axios.get("/getallschedule", {
+        const res = await axios.get("http://localhost:8000/getallschedule", {
           withCredentials: true, // Ensures cookies are sent with the request
         });
 

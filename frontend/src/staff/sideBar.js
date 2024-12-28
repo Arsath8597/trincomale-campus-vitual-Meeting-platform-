@@ -31,7 +31,7 @@ const Home = () => {
     try {
       dispatch(stuffLogOutRequest());
       const res = await axios.post(
-        "/stufflogout",
+        "http://localhost:8000/stufflogout",
         {},
         { withCredentials: true }
       );
